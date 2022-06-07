@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
-const EditUser = (props) => {
-    const id = useParams();
+const EditUser = () => {
+    const { id } = useParams();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [user, setUser] = useState();
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ const EditUser = (props) => {
 
     const onSubmit = async data => {
         api.put(`/users/${id}`, data)
-            navigate("/");
+            navigate("/user");
     };
 
     return (
