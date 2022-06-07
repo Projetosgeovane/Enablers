@@ -15,15 +15,15 @@ const EditClient = (props) => {
         async function getsClients() {
             const response = await api.get('/clients');
             setClient(response.data)
-                reset(response.data)
-                
-            }
-           
+            reset(response.data)
+
+        }
+
     }, [id]);
 
     const onSubmit = async data => {
         api.put(`/clients/${id}`, data)
-            navigate("/");
+        navigate("/");
     };
 
     return (

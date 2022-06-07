@@ -6,14 +6,11 @@ import { api } from '../../services/api';
 const ClientList = () => {
     const [clients, setClients] = useState([]);
 
-    async function getListClient() {
-        const response = await api.get('/clients');
-        setClients(response.data);
-    }
-
-
     useEffect(() => {
-        getListClient()
+        (async () => {
+            const response = await api.get('/clients');
+            setClients(response.data);
+        })();
 
     }, []);
 

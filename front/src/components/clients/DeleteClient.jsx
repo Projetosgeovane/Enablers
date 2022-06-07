@@ -11,11 +11,10 @@ const DeleteClient = (props) => {
 
 
     useEffect(() => {
-        async function ClientDelete() {
+        (async () => {
             const response = await api.get(`/clients/${id}`);
             setClient(response.data);
-            ClientDelete()
-        }
+        })()
 
     }, [id]);
 
