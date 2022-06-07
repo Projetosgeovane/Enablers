@@ -12,10 +12,12 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const recoveredUser = localStorage.getItem('user');
+        const token = localStorage.getItem('token')
 
 
-        if (recoveredUser) {
+        if (recoveredUser && token) {
             setUser(JSON.parse(recoveredUser));
+            api.defaults.headers.Authorization = `Bearer ${token}`;
         }
 
         setLoading(false);
