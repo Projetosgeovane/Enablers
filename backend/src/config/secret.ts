@@ -1,5 +1,5 @@
 export default {
     key: 'TesteEnablers',
-    expiresIn: '43200'
+    expiresIn: '18000000000000000000000000'
 } ;
 
